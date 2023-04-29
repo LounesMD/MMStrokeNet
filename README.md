@@ -24,8 +24,7 @@ This section provides a step-by-step guide on how to install and run STROKEnet. 
 - scikit-image 0.19.3 or higher
 
 ### Hardware Used
-- NVIDIA GPU (12GB VRAM or more) with CUDA 11.0 and cuDNN 8.0 support (for GPU acceleration)
-- At least 16GB RAM
+- NVIDIA GPU (RTX A5000 GPU and 30,6GiB RAM) with CUDA 11.4
 
 ### Installation Steps
 Clone this repository with the following command :
