@@ -5,7 +5,7 @@ This package provides an implementation of the MM-StrokeNet method. This is a ne
   <img src="./Images/Gif-Seg2.gif" width="400" height="350">
   <img src="./Images/Gif-Seg.gif" width="400">
 </p>
-Main contact : Lounès Meddahi ([lounes[dot]meddahi[at]gmail[dot]com]())
+Main contact : Lounès Meddahi (lounes.meddahi@ens-rennes.fr)
 
 
 ## Overview
