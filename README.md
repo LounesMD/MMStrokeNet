@@ -2,7 +2,8 @@
 This package provides an implementation of the MM-StrokeNet method. This is a new model for stroke lesions segmentation from T1+FLAIR modalities.
 
 <p align=center>
-  <img src="./Images/Gif-Seg.gif">
+  <img src="./Images/Gif-Seg2.gif" width="400" height="350">
+  <img src="./Images/Gif-Seg.gif" width="400">
 </p>
 Main contact : Lounès Meddahi ([lounes[dot]meddahi[at]gmail[dot]com]())
 
