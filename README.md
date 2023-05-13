@@ -1,6 +1,9 @@
 # MM-STROKEnet: A Novel Approach for Stroke Lesion Segmentation Using multi MRI Modalities
-This package provides an implementation of the MM-StrokeNet method. This is a new model for stroke lesions segmentation.
+This package provides an implementation of the MM-StrokeNet method. This is a new model for stroke lesions segmentation from T1+FLAIR modalities.
 
+<p align=center>
+  <img src="./Images/Gif-Seg.gif">
+</p>
 Main contact : Lounès Meddahi ([lounes[dot]meddahi[at]gmail[dot]com]())
 
 
