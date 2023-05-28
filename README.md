@@ -42,3 +42,17 @@ In this repository you will find the following folders :
 * Models : The weights and models for our pretrained and finetuned networks
 
 If you have any question about the source code, please contact me.
+
+## Citing 
+If you use the project in your work, please consider citing it with:
+
+```bibtex
+@misc{MM-STROKEnet,
+  author = {Lounès, Meddahi},
+  title = {Enhancing Chronic Stroke Lesion Detection and Segmentation through nnU-net and Multi-Modal MRI Analysis},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/LounesMD/MMStrokeNet}},
+}
+```
