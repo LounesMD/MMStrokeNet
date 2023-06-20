@@ -43,12 +43,15 @@ In this repository you will find the following folders :
 
 If you have any question about the source code, please contact me.
 
+## Paper :
+If you'd like to take a look at the preprint, please feel free to do so : [preprint](https://github.com/LounesMD/MMStrokeNet/blob/main/Preprint_MMStrokeNet.pdf).
+
 ## Citing 
 If you use the project in your work, please consider citing it with:
 
 ```bibtex
 @misc{MM-STROKEnet,
-  author = {Lounès, Meddahi},
+  author = {Lounès Meddahi, Arthur Masson, Elise Bannier, Stéphanie Leplaideur, Francesca Galassi},
   title = {Enhancing Chronic Stroke Lesion Detection and Segmentation through nnU-net and Multi-Modal MRI Analysis},
   year = {2023},
   publisher = {GitHub},
