@@ -44,7 +44,7 @@ In this repository you will find the following folders :
 If you have any question about the source code, please contact me.
 
 ## Paper :
-The paper has been accepted at [WCNR'24](https://wfnr-congress.org/) and selected for an oral presentation. Here is a [link](https://hal.science/hal-04546362/document) to the paper's resume.
+The paper has been accepted at [WCNR'24](https://wfnr-congress.org/) and selected for an oral presentation. Here is a [link](https://hal.science/hal-04546362) to the paper's resume.
 
 ## Citing 
 If you use the project in your work, please consider citing it with:
