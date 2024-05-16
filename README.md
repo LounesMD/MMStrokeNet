@@ -1,4 +1,4 @@
-# MM-STROKEnet: A Novel Approach for Stroke Lesion Segmentation Using multi MRI Modalities
+# Enhancing stroke lesion detection and segmentation through nnU-net and multi-modal MRI Analysis
 This package provides an implementation of the MM-StrokeNet method. This is a new model for stroke lesions segmentation from T1+FLAIR modalities.
 
 <p align=center>
@@ -44,18 +44,16 @@ In this repository you will find the following folders :
 If you have any question about the source code, please contact me.
 
 ## Paper :
-If you'd like to take a look at the preprint, please feel free to do so : [preprint](https://github.com/LounesMD/MMStrokeNet/blob/main/Preprint_MMStrokeNet.pdf).
+The paper has been accepted at [WCNR'24](https://wfnr-congress.org/) and selected for an oral presentation. Here is a [link](https://hal.science/hal-04546362/document) to the paper's resume.
 
 ## Citing 
 If you use the project in your work, please consider citing it with:
 
 ```bibtex
 @misc{MM-STROKEnet,
-  author = {Lounès Meddahi, Arthur Masson, Elise Bannier, Stéphanie Leplaideur, Francesca Galassi},
-  title = {Enhancing Chronic Stroke Lesion Detection and Segmentation through nnU-net and Multi-Modal MRI Analysis},
-  year = {2023},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/LounesMD/MMStrokeNet}},
+  authors = {Lounès Meddahi, Stéphanie s Leplaideur, Arthur Masson, Isabelle Bonan, Elise Bannier Francesca Galassi},
+  title = {Enhancing stroke lesion detection and segmentation through nnU-net and multi-modal MRI Analysis},
+  year = {2024},
+  conference = {WCNR 2024 - 13th World Congress for Neurorehabilitation, World federation for Neurorehabilitation},
 }
 ```
