@@ -55,9 +55,6 @@ In this repository you will find the following folders :
 ## Paper :
 The original research paper is currently under review. Initial results were presented in the form of an oral presentation at the 13th World Congress for Neurorehabilitation (WCNR) 2024. Here is a [link](https://hal.science/hal-04546362) to the paper's abstract.
 
-## Non-Commercial Use
-The contents of this repository are made available for non-commercial use only. You may not use the material for commercial purposes.
-
 ## Citing 
 If you use this project in your work, please consider citing it as follows:
 
