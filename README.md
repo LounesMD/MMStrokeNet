@@ -7,7 +7,9 @@ This repository provides the implementation of the MM-StrokeNet method for segme
   <img src="./Images/Gif-Seg.gif" width="400">
 </p>
 Main contacts : 
+
 Lounès Meddahi lounes.meddahi@ens-rennes.fr
+
 Francesca Galassi francesca.galassi@irisa.fr
 
 
