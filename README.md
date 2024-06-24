@@ -9,7 +9,6 @@ This repository provides the implementation of the MM-StrokeNet method for segme
 Main contacts : 
 
 Lounès Meddahi lounes.meddahi@ens-rennes.fr
-
 Francesca Galassi francesca.galassi@irisa.fr
 
 
