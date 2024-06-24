@@ -52,13 +52,14 @@ In this repository you will find the following folders :
 	*   The fine-tuned model on T1-weighted MRIs.
 	*   The fine-tuned model on both T1-weighted and FLAIR MRIs.
 
-If you have any question about the source code, please contact us.
-
 ## Paper :
-The paper has been accepted at [WCNR'24](https://wfnr-congress.org/) and selected for an oral presentation. Here is a [link](https://hal.science/hal-04546362) to the paper's resume.
+The original research paper is currently under review. Initial results were presented in the form of an oral presentation at the 13th World Congress for Neurorehabilitation (WCNR) 2024. Here is a [link](https://hal.science/hal-04546362) to the paper's abstract.
+
+## Non-Commercial Use
+The contents of this repository are made available for non-commercial use only. You may not use the material for commercial purposes.
 
 ## Citing 
-If you use the project in your work, please consider citing it with:
+If you use this project in your work, please consider citing it as follows:
 
 ```bibtex
 @misc{MM-STROKEnet,
