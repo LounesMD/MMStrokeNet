@@ -48,9 +48,9 @@ In this repository you will find the following folders :
 * Algorithm : Custom scripts used to modify the pretrained nnU-Net model for compatibility with dual-modality (T1-w + FLAIR) inputs.
 * Images : Visual assets used in the paper, including images and figures.
 * Models : Pretrained and fine-tuned model weights and configurations. This includes:
-*   The baseline model trained on the ATLAS v2.0 dataset.
-*   The fine-tuned model on T1-weighted MRIs.
-*   The fine-tuned model on both T1-weighted and FLAIR MRIs.
+	*   The baseline model trained on the ATLAS v2.0 dataset.
+	*   The fine-tuned model on T1-weighted MRIs.
+	*   The fine-tuned model on both T1-weighted and FLAIR MRIs.
 
 If you have any question about the source code, please contact us.
 
