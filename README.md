@@ -54,12 +54,12 @@ All subjects in the internal datasets provided written informed consent before p
 ---
 ## Preprocessing Pipeline
 
-The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training and testing. These preprocessing steps were applied to all MRI data involved in the project, including both the internal datasets and the ATLAS dataset.
+The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training and testing. These preprocessing steps were applied to all MRI data involved in the project, including both the internal datasets and the ATLAS dataset. When running the model in test mode, you should ideally perform the preprocessing steps (1-5) on your data first.
 
 ### Preprocessing Steps
 
 #### 1. **Brain Extraction**
-The **HD-BET** tool is used to remove the skull from the images. This deep learning-based method provides improved accuracy for brain extraction compared to traditional methods. For more information on HD-BET, please refer to [the HD-BET repository](https://github.com/MIC-DKFZ/HD-BET).
+The **HD-BET** tool is used to remove the skull from the images. This deep learning-based method provides improved accuracy for brain extraction compared to traditional methods. For more information on HD-BET, please refer to https://github.com/MIC-DKFZ/HD-BET.
 
 #### 2. **Re-orientation**
 The volumes are re-oriented to the **RAS** (Right-Anterior-Superior) coordinates to ensure consistent orientation across all images. This step is crucial for standardizing image orientation and preventing issues during further processing.
@@ -72,6 +72,12 @@ The bias due to spatial inhomogeneity is estimated and removed from the data usi
 
 #### 5. **Intensity Normalization**
 Image intensities are standardized by subtracting the mean voxel value and dividing by the standard deviation for each image. This normalization step ensures that all images have a consistent intensity distribution, making them comparable across subjects and modalities, which is crucial for downstream analyses and model training.
+
+To perform the preprocessing steps, you can use the following command:
+
+```bash
+python3 preprocess.py --patients DATA/raw/ --preprocess_steps reorient remove_bias normalize -cs -m t1 flair
+
 
 #### Note on nnU-Net Framework
 
