@@ -54,7 +54,7 @@ All subjects in the internal datasets provided written informed consent before p
 ---
 ## Preprocessing Pipeline
 
-The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training. It ensures that the input images are appropriately aligned, normalized, and corrected for artifacts, thereby improving the reliability and accuracy of subsequent analyses. The following preprocessing steps are applied to the MRI data to enhance image quality and ensure consistency across subjects and modalities:
+The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training and testing. These preprocessing steps were applied to all MRI data involved in the project, including both the internal datasets and the ATLAS dataset.
 
 ### Preprocessing Steps
 
@@ -65,13 +65,28 @@ The **HD-BET** tool is used to remove the skull from the images. This deep learn
 The volumes are re-oriented to the **RAS** (Right-Anterior-Superior) coordinates to ensure consistent orientation across all images. This step is crucial for standardizing image orientation and preventing issues during further processing.
 
 #### 3. **Registration**
-If both **T1-weighted** (T1-w) and **FLAIR** images are available for a subject, the T1-w image is rigidly registered to the corresponding FLAIR image using a block matching registration method (**animaPyramidalBMRegistration**, **Anima** (https://anima.irisa.fr/)). If only the T1-w modality is available, this step is skipped. This ensures alignment between T1-w and FLAIR images when both are present, supporting multi-modality analysis.
+If both **T1-w** and **FLAIR** images are available for a subject, the T1-w image is rigidly registered to the corresponding FLAIR image using a block matching registration method (**animaPyramidalBMRegistration**, **Anima** (https://anima.irisa.fr/)). If only the T1-w modality is available, this step is skipped. This ensures alignment between T1-w and FLAIR images when both are present, supporting multi-modality analysis.
 
 #### 4. **Bias Correction**
-The bias due to spatial inhomogeneity is estimated and removed from the data using the **N4ITK** bias field correction algorithm. This correction compensates for signal variations caused by magnetic field inhomogeneities during MRI acquisition, ensuring more uniform intensity across the image.
+The bias due to spatial inhomogeneity is estimated and removed from the data using the **N4ITK** bias field correction algorithm (**animaN4BiasCorrection**). This correction compensates for signal variations caused by magnetic field inhomogeneities during MRI acquisition, ensuring more uniform intensity across the image.
 
 #### 5. **Intensity Normalization**
 Image intensities are standardized by subtracting the mean voxel value and dividing by the standard deviation for each image. This normalization step ensures that all images have a consistent intensity distribution, making them comparable across subjects and modalities, which is crucial for downstream analyses and model training.
+
+#### Note on nnU-Net Framework
+
+It is important to note that in addition to the preprocessing steps outlined above, the **nnU-Net** framework (**https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1**) performs several additional operations by default to standardize the input data:
+
+- **Voxel Spacing Standardization**: The framework automatically calculates a uniform target spacing for each axis using the median values from the training dataset. This ensures that all images are resampled to have consistent voxel spacing across subjects and modalities.
+  
+- **Resampling Strategy**: By default, **third-order spline interpolation** is used for resampling images. However, for anisotropic images (where the ratio of the maximum to minimum axis spacing exceeds 3), the framework adapts its resampling approach:
+  - **In-plane resampling** is done using third-order spline interpolation.
+  - **Out-of-plane resampling** uses **nearest neighbor interpolation** to reduce resampling artifacts and better preserve spatial information.
+
+- **Segmentation Maps**: The framework automatically converts segmentation maps into **one-hot encodings**. Each channel of the segmentation mask is then interpolated using **linear interpolation**, and the final segmentation mask is obtained by applying the **argmax** operation. For anisotropic data, **nearest neighbor interpolation** is applied to the low-resolution axis to minimize interpolation artifacts.
+
+This preprocessing ensures consistency across all images and improves the robustness of the model, especially when dealing with different image resolutions and anisotropic data.
+
 
 ## Installation and Requirements
 
