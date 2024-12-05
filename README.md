@@ -22,9 +22,62 @@ This repository contains the code for fine-tuning a pre-trained single-modality 
   <img src="./Images/ImageGit.svg" width="700" title="Model_v1 trained on ATLAS T1-weighted MRIs">
 </p>-->
 
+## Methods and Materials
+
+### Datasets
+
+To ensure reproducibility and transparency in our work, we provide detailed descriptions of the datasets used in our study. The datasets include a publicly available single-modality dataset (ATLAS v2.0) and an internal dual-modality dataset (combining T1-w and FLAIR MRI scans). The following sections describe the datasets in detail, including their acquisition, preprocessing, and usage.
+
+#### 1. Public Single-Modality ATLAS v2.0 Dataset
+
+The **ATLAS v2.0 dataset** was used to develop our baseline single-modality model. It consists of T1-weighted (T1-w) MRI scans and lesion segmentation masks. This dataset is publicly available and has been pre-aligned to the **MNI-152 standard template** with a voxel size of **1 x 1 x 1 mm**. 
+
+The dataset includes:
+- **Training set:** 655 T1-w MRI scans with corresponding lesion segmentation masks.
+- **Test set:** 300 T1-w MRI scans.
+- **Hidden test set:** 316 T1-w MRI scans.
+
+**Lesion volumes:** The average lesion volume in this dataset is **3.28 x 10⁴ mm³**, with individual lesion volumes ranging from **13 mm³** to **4.79 x 10⁵ mm³**. This dataset is used for training and validating our baseline model.
+
+#### 2. Internal Dual-Modality Datasets
+
+The **internal dual-modality datasets** were collected from two clinical studies: the **NeuroFB-AVC study** (NCT03766113) and the **AVCPOSTIM study** (NCT01677091). These datasets include both **T1-w** and **FLAIR** MRI modalities and were used to fine-tune the baseline model to work with dual-modality inputs.
+
+**Dataset A** (used for fine-tuning the model) consists of:
+- T1-w and FLAIR scans from patients in the **sub-acute** (7 days to 6 months post-stroke) and **chronic** (over 6 months post-stroke) phases.
+- The dataset includes patients with both **ischemic** and **hemorrhagic** strokes.
+
+The **NeuroFB-AVC study** was conducted on a **3T Magnetom Siemens Prisma** scanner, while the **AVCPOSTIM study** used multiple scanner types, including:
+- **3T Magnetom Siemens Prisma**
+- **1.5T Siemens Avento**
+- **3T Philips Medical Systems Achieva**
+- **3T GE Discovery**
+
+**Manual segmentation** was performed on the FLAIR images with the assistance of T1-w scans by a trained neuroimaging expert, and reviewed by a neuroradiologist.
+
+**Dataset A Details:**
+- T1-w images have a mean voxel size of **1 x 1 x 1 mm**.
+- FLAIR images have a mean voxel size of **0.75 x 0.75 x 3.3 mm**.
+
+**Dataset B** (used for model testing) contains:
+- T1-w images with a mean voxel size of **(0.942 ± 0.158, 0.942 ± 0.158, 1.463 ± 1.286) mm**.
+- FLAIR images with a mean voxel size of **(0.680 ± 0.224, 0.680 ± 0.224, 1.286 ± 1.638) mm**.
+
+Both **Dataset A** and **Dataset B** were used to train and evaluate the dual-modality model.
+
+### Data Access
+
+The **ATLAS v2.0 dataset** is publicly available for download from [here](https://fcon_1000.projects.nitrc.org/indi/retro/atlas.html).
+
+For access to the **internal datasets**, please contact the authors or refer to the corresponding clinical study registrations: [NeuroFB-AVC Study (NCT03766113)](https://clinicaltrials.gov/ct2/show/NCT03766113) and [AVCPOSTIM Study (NCT01677091)](https://clinicaltrials.gov/ct2/show/NCT01677091).
+
+### Ethical Considerations
+
+All subjects in the internal datasets provided **written informed consent** prior to participation. The studies were approved by the relevant ethics committees and complied with **French data confidentiality regulations**. 
+
 ## Preprocessing Pipeline
 
-Our approach builds upon our previously proposed framework [18, 21], with adjustments to the preprocessing pipeline aimed at improving brain extraction. Specifically, we replaced the previous brain extraction step, which used **Anima** (https://anima.irisa.fr/), with the state-of-the-art HD-BET deep learning-based tool [22]. Below is a description of the preprocessing pipeline:
+The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training. It ensures that the input images are appropriately aligned, normalized, and corrected for artifacts, thereby improving the reliability and accuracy of subsequent analyses. The following preprocessing steps are applied to the MRI data to enhance image quality and ensure consistency across subjects and modalities:
 
 ### Preprocessing Steps
 
@@ -35,7 +88,7 @@ The **HD-BET** tool is used to remove the skull from the images. This deep learn
 The volumes are re-oriented to the **RAS** (Right-Anterior-Superior) coordinates to ensure consistent orientation across all images. This step is crucial for standardizing image orientation and preventing issues during further processing.
 
 #### 3. **Registration**
-If both **T1-weighted** (T1-w) and **FLAIR** images are available for a subject, the T1-w image is rigidly registered to the corresponding FLAIR image using a block matching registration method (**animaPyramidalBMRegistration**). If only the T1-w modality is available, this step is skipped. This ensures alignment between T1-w and FLAIR images when both are present, supporting multi-modality analysis.
+If both **T1-weighted** (T1-w) and **FLAIR** images are available for a subject, the T1-w image is rigidly registered to the corresponding FLAIR image using a block matching registration method (**animaPyramidalBMRegistration**, **Anima** (https://anima.irisa.fr/)). If only the T1-w modality is available, this step is skipped. This ensures alignment between T1-w and FLAIR images when both are present, supporting multi-modality analysis.
 
 #### 4. **Bias Correction**
 The bias due to spatial inhomogeneity is estimated and removed from the data using the **N4ITK** bias field correction algorithm. This correction compensates for signal variations caused by magnetic field inhomogeneities during MRI acquisition, ensuring more uniform intensity across the image.
