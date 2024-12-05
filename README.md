@@ -73,12 +73,6 @@ The bias due to spatial inhomogeneity is estimated and removed from the data usi
 #### 5. **Intensity Normalization**
 Image intensities are standardized by subtracting the mean voxel value and dividing by the standard deviation for each image. This normalization step ensures that all images have a consistent intensity distribution, making them comparable across subjects and modalities, which is crucial for downstream analyses and model training.
 
-To perform the preprocessing steps 2-5, you can use the following command:
-
-```bash
-python3 preprocess.py --patients DATA/raw/ --preprocess_steps reorient remove_bias normalize -cs -m t1 flair
-```
-
 #### Note on nnU-Net Framework
 
 It is important to note that in addition to the preprocessing steps outlined above, the **nnU-Net** framework (**https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1**) performs several additional operations by default to standardize the input data:
@@ -93,6 +87,24 @@ It is important to note that in addition to the preprocessing steps outlined abo
 
 This preprocessing ensures consistency across all images and improves the robustness of the model, especially when dealing with different image resolutions and anisotropic data.
 
+## Test Mode Example
+
+To run the code in test mode, you can use the following two command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs.
+
+Note: you need to perform step 1 of the preproessing pipeline first.
+
+This command performs preprocessing steps (2-5) and generates predictions on test data:
+
+```bash
+python3 preprocess.py --patients <input_patient_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 flair
+
+python3 predict_batch.py --patients <input_patient_folder>/normalized/ --output <output_folder> -cs -mn <model_name> -m <modality> --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg <config_file> -f <fold_number>
+
+python3 evaluate_models.py -mo <model_output_folder> -gt <input_patient_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
+```
+
+In our study we used: 
+-pmin 0.2 -pmax 0.2 -vmin 10
 
 ## Installation and Requirements
 
