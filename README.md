@@ -73,11 +73,11 @@ The bias due to spatial inhomogeneity is estimated and removed from the data usi
 #### 5. **Intensity Normalization**
 Image intensities are standardized by subtracting the mean voxel value and dividing by the standard deviation for each image. This normalization step ensures that all images have a consistent intensity distribution, making them comparable across subjects and modalities, which is crucial for downstream analyses and model training.
 
-To perform the preprocessing steps, you can use the following command:
+To perform the preprocessing steps 2-5, you can use the following command:
 
 ```bash
 python3 preprocess.py --patients DATA/raw/ --preprocess_steps reorient remove_bias normalize -cs -m t1 flair
-
+```
 
 #### Note on nnU-Net Framework
 
