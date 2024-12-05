@@ -102,9 +102,10 @@ python3 predict_batch.py --patients <input_patient_folder>/normalized/ --output 
 
 python3 evaluate_models.py -mo <model_output_folder> -gt <input_patient_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
 ```
-
 In our study we used: 
 -pmin 0.2 -pmax 0.2 -vmin 10
+
+The evaluation script uses **animaSegPerfAnalyzer** for lesion detection performance analysis.
 
 ## Installation and Requirements
 
@@ -138,7 +139,8 @@ In this repository you will find the following folders :
 	*   The fine-tuned model on both T1-weighted and FLAIR MRIs.
 
 ## Paper :
-The original research paper is currently under review. Initial results were presented in the form of an oral presentation at the 13th World Congress for Neurorehabilitation (WCNR) 2024. Here is a [link](https://hal.science/hal-04546362) to the paper's abstract.
+The original research paper is currently under review.
+Initial results were presented in the form of an oral presentation at the 13th World Congress for Neurorehabilitation (WCNR) 2024. Here is a [link](https://hal.science/hal-04546362) to the paper's abstract.
 
 ## Citing 
 If you use this project in your work, please consider citing it as follows:
