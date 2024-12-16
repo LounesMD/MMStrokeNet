@@ -80,16 +80,30 @@ This preprocessing ensures consistency across all images and improves the robust
 ---
 ## Test Mode Example
 
+Before running the commmands, ensure you data is organised as follows: 
+
+<input_data_folder>/
+    └── raw/
+        └── patient46/
+            ├── anatomy-brain
+            └── segmentations-brain
+
+
+- `<input_data_folder>` corresponds to your input data folder
+- Each patient folder (e.g., `patient46`) contains:
+  - `anatomy-brain`: The MRI scan(s) (e.g., T1-weighted or FLAIR).
+  - `segmentations-brain`: The segmentation file.
+    
 To run the code in test mode, you can use the following two command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs.
 
 Note: you need to perform step 1 of the preprocessing pipeline before running the following commands. Indeed, the first command performs preprocessing steps (2-5).
 
 ```bash
-python3 preprocess.py --patients <input_patient_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 flair
+python3 preprocess.py --patients <input_data_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 flair
 
-python3 predict_batch.py --patients <input_patient_folder>/normalized/ --output <output_folder> -cs -mn <model_name> -m <modality> --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg <config_file> -f <fold_number>
+python3 predict_batch.py --patients <input_data_folder>/normalized/ --output <output_folder> -cs -mn <model_name> -m <modality> --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg <config_file> -f <fold_number>
 
-python3 evaluate_models.py -mo <model_output_folder> -gt <input_patient_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
+python3 evaluate_models.py -mo <model_output_folder> -gt <input_data_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
 ```
 In our study we used the following parameters: 
 -pmin 0.2 -pmax 0.2 -vmin 10
