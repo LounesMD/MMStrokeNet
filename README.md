@@ -22,6 +22,7 @@ This repository contains the code for fine-tuning a pre-trained single-modality 
   <img src="./Images/ImageGit.svg" width="700" title="Model_v1 trained on ATLAS T1-weighted MRIs">
 </p>-->
 
+---
 ## Methods and Materials
 
 ### Datasets
@@ -45,9 +46,7 @@ For access to the internal datasets, please contact the authors and refer to the
 ---
 ## Preprocessing Pipeline
 
-The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training and testing. These preprocessing steps were applied to all MRI data involved in the project, including both the internal datasets and the ATLAS dataset. When running the model in test mode, you should ideally perform the preprocessing steps (1-5) on your data first.
-
-### Preprocessing Steps
+The preprocessing pipeline is a critical component in the preparation of MRI data prior to segmentation model training and testing. These preprocessing steps were applied to all MRI data involved in the project, including both the internal datasets and the ATLAS dataset. When running the model in test mode, you should perform the preprocessing steps (1-5) on your data first.
 
 #### 1. **Brain Extraction**
 The **HD-BET** tool is used to remove the skull from the images. This deep learning-based method provides improved accuracy for brain extraction compared to traditional methods. For more information on HD-BET, please refer to https://github.com/MIC-DKFZ/HD-BET.
@@ -78,13 +77,12 @@ It is important to note that in addition to the preprocessing steps outlined abo
 
 This preprocessing ensures consistency across all images and improves the robustness of the model, especially when dealing with different image resolutions and anisotropic data.
 
+---
 ## Test Mode Example
 
 To run the code in test mode, you can use the following two command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs.
 
-Note: you need to perform step 1 of the preproessing pipeline first.
-
-This command performs preprocessing steps (2-5) and generates predictions on test data:
+Note: you need to perform step 1 of the preprocessing pipeline before running the following commands. Indeed, the first command performs preprocessing steps (2-5).
 
 ```bash
 python3 preprocess.py --patients <input_patient_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 flair
