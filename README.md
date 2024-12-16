@@ -30,20 +30,16 @@ To ensure reproducibility, we provide detailed descriptions of the datasets used
 
 #### 1. Public Single-Modality ATLAS v2.0 Dataset
 
-The **ATLAS v2.0 dataset** was used to develop the baseline single-modality model. It includes T1-w MRI scans and corresponding lesion segmentation masks. This dataset is publicly available and pre-aligned to the MNI-152 standard template with a voxel size of 1 x 1 x 1 mm. The dataset consists of:
-
-- **Training set**: 655 T1-w MRI scans with lesion masks (used for training and validating our model).
-- **Test set**: 300 T1-w MRI scans. 
-- **Hidden test set**: 316 T1-w MRI scans.
+The **ATLAS v2.0 dataset** was used to develop the baseline single-modality model. It includes T1-weighted MRI scans and corresponding lesion segmentation masks, pre-aligned to the MNI-152 standard template with a voxel size of 1 x 1 x 1 mm. The dataset used for training and validating our model consists of 655 T1-w MRI scans from the training folder of the ATLAS v2.0 dataset.
 
 #### 2. Internal Dual-Modality Datasets
 
-The **internal dual-modality datasets** were collected from two clinical studies: the **NeuroFB-AVC study** (NCT03766113) and the **AVCPOSTIM study** (NCT01677091). These datasets, which include both T1-weighted (T1-w) and FLAIR MRI scans, were used for fine-tuning the baseline model with dual-modality inputs, as well as for testing. Manual segmentation of the FLAIR images was carried out by a neuroimaging expert, with assistance from the T1-w modality, and reviewed by a neuroradiologist.
+The **internal dual-modality datasets** were collected from two clinical studies: the **NeuroFB-AVC study** (NCT03766113) and the **AVCPOSTIM study** (NCT01677091). These datasets, which include both T1-w and FLAIR MRI scans, were used for fine-tuning the baseline model with dual-modality inputs, as well as for testing. Manual segmentation of the FLAIR images was carried out by a neuroimaging expert, with assistance from the T1-w modality, and reviewed by a neuroradiologist.
 
 ### Data Access
 
 - The **ATLAS v2.0 dataset** is publicly available for download [here](https://fcon_1000.projects.nitrc.org/indi/retro/atlas.html).
-- For access to the **internal datasets**, please contact the authors or refer to the corresponding clinical study registrations:
+- For access to the **internal datasets**, please contact the authors and refer to the corresponding clinical study registrations:
   - [NeuroFB-AVC Study (NCT03766113)](https://clinicaltrials.gov/ct2/show/NCT03766113)
   - [AVCPOSTIM Study (NCT01677091)](https://clinicaltrials.gov/ct2/show/NCT01677091)
 
