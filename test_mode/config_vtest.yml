@@ -1,0 +1,31 @@
+# Path to the folder where the predictions will be saved. {nnunet_base} will be replaced with the nnUNet base path
+prediction_folder: '{nnunet_base}/predictions/'
+
+# Description of the file structure of a patient (Test Mode Only)
+# Description of the file structure of a patient
+patient_structure:
+   cross_sectional:
+      reference: 'anatomy-brain/t1_skull_stripped.nii.gz'
+      times:
+         - segmentation: 'segmentations-brain/groundTruth-cross_skull_stripped_rev0.nii.gz' 
+
+           modalities:
+               flair: 'anatomy-brain/flair_skull_stripped.nii.gz'
+               t1: 'anatomy-brain/t1_skull_stripped.nii.gz'
+
+normalization_schemes:
+   flair: []
+   t1: []
+custom_nnunet_parameters:
+   experiment_planner: 
+      2d: 'ExperimentPlanner2D_v21'
+      3d: 'ExperimentPlanner3D_v21'
+   disable_tta: true      # Test Time Augmentation (TTA) via mirroring. Speeds up inference by roughly factor 8.
+   trainer:
+      max_num_epochs: 1560 #1600 - 1560
+
+   data_augmentation: # Only used for training
+      intensify_lesion_augmentation: false
+      mirror_axes: [1]
+file_formats:
+   final_segmentation: '{patient_name}_final_segmentation.nii.gz'
