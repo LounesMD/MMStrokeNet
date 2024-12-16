@@ -87,15 +87,10 @@ Before running the commmands, ensure you data is organised as follows:
 │
 └── raw/
     │
-    └── patient46/
+    └── patient01/
         ├── anatomy-brain
         └── segmentations-brain
 ```
-
-- `<input_data_folder>` corresponds to your input data folder
-- Each patient folder (e.g., `patient46`) contains:
-  - `anatomy-brain`: The MRI scan(s) (e.g., T1-weighted or FLAIR).
-  - `segmentations-brain`: The segmentation file.
     
 To run the code in test mode, you can use the following two command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs.
 
