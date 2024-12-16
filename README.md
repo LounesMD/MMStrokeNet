@@ -93,10 +93,10 @@ python3 predict_batch.py --patients <input_patient_folder>/normalized/ --output 
 
 python3 evaluate_models.py -mo <model_output_folder> -gt <input_patient_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
 ```
-In our study we used: 
+In our study we used the following parameters: 
 -pmin 0.2 -pmax 0.2 -vmin 10
 
-The evaluation script uses **animaSegPerfAnalyzer** for lesion detection performance analysis.
+The evaluation script uses **animaSegPerfAnalyzer** for lesion detection performance analysis (**https://anima.readthedocs.io/en/latest/segmentation.html**).
 
 ## Installation and Requirements
 
