@@ -81,13 +81,14 @@ This preprocessing ensures consistency across all images and improves the robust
 ## Test Mode Example
 
 Before running the commmands, ensure you data is organised as follows: 
-'''
+
 <your_input_patient_folder>/
-    └── raw/
-        └── patient46/
-            ├── anatomy-brain
-            └── segmentations-brain
-'''
+│
+└── raw/
+    │
+    └── patient46/
+        ├── anatomy-brain
+        └── segmentations-brain
 
 - `<input_data_folder>` corresponds to your input data folder
 - Each patient folder (e.g., `patient46`) contains:
