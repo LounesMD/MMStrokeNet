@@ -114,9 +114,9 @@ In our study we used the following parameters:
 The evaluation script uses **animaSegPerfAnalyzer** for lesion detection performance analysis (**https://anima.readthedocs.io/en/latest/segmentation.html**).
 
 Available models :
-*  Task111 : The baseline model trained on the ATLAS v2.0 dataset (T1-w)
-*  Task999 :The fine-tuned model on T1-w.
-*  Task777 :The fine-tuned model on both T1-w and FLAIR.
+*  Task111 :The baseline model trained on the ATLAS v2.0 dataset (T1-w). Folder: 2.
+*  Task999 :The fine-tuned model on T1-w. Folder: 4.
+*  Task777 :The fine-tuned model on both T1-w and FLAIR. Folder: 2.
 
 
 ## Installation and Requirements
