@@ -82,7 +82,7 @@ This preprocessing ensures consistency across all images and improves the robust
 Before running the commands, ensure your data is organized and structured correctly as follows:
 
 ```
-<your_input_patient_folder>/
+<input_data_folder>/
 │
 └── raw/
     │
@@ -91,10 +91,11 @@ Before running the commands, ensure your data is organized and structured correc
         └── segmentations-brain
 ```
 
-- The folder structure is critical for the proper execution of the preprocessing, prediction, and evaluation steps.
 - The `raw` folder should contain a folder for each patient (e.g., `patient01`), with subfolders for `anatomy-brain` and `segmentations-brain`. 
   - The `anatomy-brain` subfolder should contain the modalities for each patient (e.g., `flair.nii.gz`, `t1.nii.gz`, etc.).
   - The `segmentations-brain` subfolder should contain the ground truth segmentation files (e.g., `groundTruth-all.nii.gz`).
+
+An example is provided within the test_mode folder - simple and straightforward.
 
 Note: you need to perform step 1 of the preprocessing pipeline before running the following commands. Indeed, the first command performs preprocessing steps (2-5).
 
