@@ -80,7 +80,7 @@ This preprocessing ensures consistency across all images and improves the robust
 ---
 ## Test Mode Example
 
-Before running the commmands, ensure you data is organised as follows: 
+Before running the commands, ensure your data is organized and structured correctly as follows:
 
 ```
 <your_input_patient_folder>/
@@ -91,22 +91,33 @@ Before running the commmands, ensure you data is organised as follows:
         ├── anatomy-brain
         └── segmentations-brain
 ```
-    
-To run the code in test mode, you can use the following two command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs.
+
+- The folder structure is critical for the proper execution of the preprocessing, prediction, and evaluation steps.
+- The `raw` folder should contain a folder for each patient (e.g., `patient01`), with subfolders for `anatomy-brain` and `segmentations-brain`. 
+  - The `anatomy-brain` subfolder should contain the modalities for each patient (e.g., `flair.nii.gz`, `t1.nii.gz`, etc.).
+  - The `segmentations-brain` subfolder should contain the ground truth segmentation files (e.g., `groundTruth-all.nii.gz`).
 
 Note: you need to perform step 1 of the preprocessing pipeline before running the following commands. Indeed, the first command performs preprocessing steps (2-5).
 
+To run the code in test mode, you can use the following command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs. 
+
 ```bash
-python3 preprocess.py --patients <input_data_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 flair
+python3 preprocess.py --patients <input_data_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 -cfg config_vtest.yml 
 
-python3 predict_batch.py --patients <input_data_folder>/normalized/ --output <output_folder> -cs -mn <model_name> -m <modality> --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg <config_file> -f <fold_number>
+python3 predict_batch.py --patients <input_data_folder>/normalized/ --output <input_data_folder> -cs -mn Task111 -m t1 --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg config_vtest.yml -f 2
 
-python3 evaluate_models.py -mo <model_output_folder> -gt <input_data_folder>/raw/ -o <evaluation_results_folder> -cs -psigts -sgp -cfg <config_file>
+python3 evaluate_models.py -mo <input_data_folder>/Task111 -gt <input_data_folder>/raw/ -o <input_data_folder>/Task111_results -cs -psigts -sgp -cfg config_vtest.yml
 ```
 In our study we used the following parameters: 
 -pmin 0.2 -pmax 0.2 -vmin 10
 
 The evaluation script uses **animaSegPerfAnalyzer** for lesion detection performance analysis (**https://anima.readthedocs.io/en/latest/segmentation.html**).
+
+Available models :
+*  Task111 : The baseline model trained on the ATLAS v2.0 dataset (T1-w)
+*  Task999 :The fine-tuned model on T1-w.
+*  Task777 :The fine-tuned model on both T1-w and FLAIR.
+
 
 ## Installation and Requirements
 
