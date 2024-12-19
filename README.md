@@ -1,5 +1,7 @@
 ## Deep Learning and Multi-Modal MRI for Segmentation of Sub-Acute and Chronic Stroke Lesions 
 
+*This project is intended for research and educational purposes only. Commercial use of the models or data is strictly prohibited unless prior permission is granted by the authors.*
+
 *Research article currently under revision*
 
 Main contact : 
