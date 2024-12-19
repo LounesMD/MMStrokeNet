@@ -1,38 +1,35 @@
 ## Deep Learning and Multi-Modal MRI for Segmentation of Sub-Acute and Chronic Stroke Lesions 
 
-*This project is intended for research and educational purposes only. Commercial use of the models or data is strictly prohibited unless prior permission is granted by the authors.*
+*This project is for research and educational purposes only. Commercial use of the models or data is strictly prohibited unless prior permission is granted by the authors.*
 
-*Research article currently under revision*
+**Research article under revision**  
+**Conference paper**: Accepted and presented at the 13th World Congress for Neurorehabilitation (WCNR 2024). 
 
-Main contact : 
-Francesca Galassi francesca.galassi@irisa.fr
+**Contact**: Francesca Galassi ([francesca.galassi@irisa.fr](mailto:francesca.galassi@irisa.fr))
 
 ## Overview
 
 This repository contains:  
 1. **Trained Models**:  
-   - A baseline single-modality nnU-Net model trained on the ATLAS v2.0 dataset (T1-w).  
-   - A fine-tuned single-modality model trained on a private dataset (T1-w).  
-   - A fine-tuned dual-modality model (T1-w + FLAIR) trained on a private dataset.  
+   - A baseline single-modality model trained on the ATLAS v2.0 dataset (T1-w).  
+   - A fine-tuned single-modality (T1-w) model trained on a private dataset.  
+   - A fine-tuned dual-modality (T1-w + FLAIR) model trained on a private dataset.
+  
+2. **Code**: End-to-end pipeline for segmentating your data in test mode.
 
-2. **Scripts**:  
+3. **Additional Scripts**:  
    - **Fine-tuning script**: Adapts a single-modality nnU-Net model to handle two modalities (T1-w and FLAIR).  
-
-3. **Pipeline**: End-to-end pipeline for segmentating your data, described in detail in the manuscript:  
-   *"Deep Learning and Multi-Modal MRI for Segmentation of Sub-Acute and Chronic Stroke Lesions"*, currently under review.  
-
-For any questions or additional details, please contact the corresponding author.
 
 ---
 ## Methods and Materials
 
 ### Datasets
 
-To ensure reproducibility, we provide detailed descriptions of the datasets used in this study. These include a publicly available single-modality dataset (ATLAS v2.0) and an internal dual-modality dataset, combining T1-weighted (T1-w) and FLAIR MRI scans.
+Data used in this project include a publicly available single-modality dataset (ATLAS v2.0) and an internal dual-modality dataset, combining T1-w and FLAIR MRI scans.
 
 #### 1. Public Single-Modality ATLAS v2.0 Dataset
 
-The **ATLAS v2.0 dataset** was used to develop the baseline single-modality model. It includes T1-weighted MRI scans and corresponding lesion segmentation masks, pre-aligned to the MNI-152 standard template with a voxel size of 1 x 1 x 1 mm. The dataset used for training and validating our model consists of 655 T1-w MRI scans from the training folder of the ATLAS v2.0 dataset. 
+The **ATLAS v2.0 dataset** was used to develop the baseline single-modality model. It includes T1-w MRI scans and corresponding lesion segmentation masks, pre-aligned to the MNI-152 standard template with a voxel size of 1 x 1 x 1 mm. The dataset used for training and validating our model consists of 655 T1-w MRI scans from the training folder of the ATLAS v2.0 dataset. 
 The ATLAS v2.0 dataset is publicly available for download [here](https://fcon_1000.projects.nitrc.org/indi/retro/atlas.html).
 
 #### 2. Internal Dual-Modality Datasets
