@@ -96,7 +96,7 @@ An example is provided within the test_mode folder - simple and straightforward.
 
 Note: you need to perform step 1 of the preprocessing pipeline before running the following commands. Indeed, the first command performs preprocessing steps (2-5).
 
-To run the code in test mode, you can use the following command examples. These commands are designed to predict on a batch of data and evaluate the models based on the given inputs. 
+To run the code in test mode, you can use the following command examples. These commands are designed to predict on a batch of data. 
 
 ```bash
 python3 preprocess.py --patients <input_data_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 -cfg config_vtest.yml 
