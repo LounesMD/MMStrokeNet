@@ -87,12 +87,10 @@ Before running the commands, ensure your data is organized and structured correc
     │
     └── patient01/
         ├── anatomy-brain
-        └── segmentations-brain
 ```
 
-- The `raw` folder should contain a folder for each patient (e.g., `patient01`), with subfolders for `anatomy-brain` and `segmentations-brain`. 
-  - The `anatomy-brain` subfolder should contain the modalities for each patient (e.g., `flair.nii.gz`, `t1.nii.gz`, etc.).
-  - The `segmentations-brain` subfolder should contain the ground truth segmentation files (e.g., `groundTruth-all.nii.gz`).
+- The `raw` folder should contain a folder for each patient (e.g., `patient01`), with subfolder `anatomy-brain`. 
+  - The `anatomy-brain` subfolder should contain the modalities for each patient (e.g., `flair_skull_stripped.nii.gz`, `t1_skull_stripped.nii.gz`).
 
 An example is provided within the test_mode folder - simple and straightforward.
 
@@ -104,8 +102,6 @@ To run the code in test mode, you can use the following command examples. These 
 python3 preprocess.py --patients <input_data_folder>/raw/ --preprocess_steps prepare_without_brain_extraction remove_bias normalize -cs -m t1 -cfg config_vtest.yml 
 
 python3 predict_batch.py --patients <input_data_folder>/normalized/ --output <input_data_folder> -cs -mn Task111 -m t1 --preprocess_steps check install -pmin <min_value> -pmax <max_value> -vmin <validation_min> -cfg config_vtest.yml -f 2
-
-python3 evaluate_models.py -mo <input_data_folder>/Task111 -gt <input_data_folder>/raw/ -o <input_data_folder>/Task111_results -cs -psigts -sgp -cfg config_vtest.yml
 ```
 In our study we used the following parameters: 
 -pmin 0.2 -pmax 0.2 -vmin 10
