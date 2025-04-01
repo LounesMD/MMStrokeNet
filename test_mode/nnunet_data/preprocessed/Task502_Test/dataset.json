@@ -1,0 +1,104 @@
+{
+    "description": null,
+    "labels": {
+        "0": "background",
+        "1": "lesion"
+    },
+    "licence": "",
+    "modality": {
+        "0": "t1"
+    },
+    "name": "Task502_Test",
+    "numTest": 0,
+    "numTraining": 21,
+    "reference": "",
+    "release": "0.0",
+    "tensorImageSize": "4D",
+    "test": [],
+    "training": [
+        {
+            "image": "./imagesTr/patient0.nii.gz",
+            "label": "./labelsTr/patient0.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient1.nii.gz",
+            "label": "./labelsTr/patient1.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient10.nii.gz",
+            "label": "./labelsTr/patient10.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient11.nii.gz",
+            "label": "./labelsTr/patient11.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient12.nii.gz",
+            "label": "./labelsTr/patient12.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient13.nii.gz",
+            "label": "./labelsTr/patient13.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient14.nii.gz",
+            "label": "./labelsTr/patient14.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient15.nii.gz",
+            "label": "./labelsTr/patient15.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient16.nii.gz",
+            "label": "./labelsTr/patient16.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient17.nii.gz",
+            "label": "./labelsTr/patient17.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient18.nii.gz",
+            "label": "./labelsTr/patient18.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient19.nii.gz",
+            "label": "./labelsTr/patient19.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient2.nii.gz",
+            "label": "./labelsTr/patient2.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient20.nii.gz",
+            "label": "./labelsTr/patient20.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient3.nii.gz",
+            "label": "./labelsTr/patient3.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient4.nii.gz",
+            "label": "./labelsTr/patient4.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient5.nii.gz",
+            "label": "./labelsTr/patient5.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient6.nii.gz",
+            "label": "./labelsTr/patient6.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient7.nii.gz",
+            "label": "./labelsTr/patient7.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient8.nii.gz",
+            "label": "./labelsTr/patient8.nii.gz"
+        },
+        {
+            "image": "./imagesTr/patient9.nii.gz",
+            "label": "./labelsTr/patient9.nii.gz"
+        }
+    ]
+}

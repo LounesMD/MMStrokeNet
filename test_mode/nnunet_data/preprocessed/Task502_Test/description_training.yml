@@ -1,0 +1,20 @@
+dataset_name: datatrain_min
+preprocessings:
+- configuration: config.yml
+  cross_sectionnal: true
+  input: datatrain_min/raw
+  modalities:
+  - t1
+  normalizations:
+    flair: []
+    pmaps: []
+    t1: []
+    t2: []
+  preprocess_steps:
+  - prepare
+  - adjust
+  - check
+  - install
+  - plan
+  reference: anatomy-brain/t1.nii.gz
+task_description: null
