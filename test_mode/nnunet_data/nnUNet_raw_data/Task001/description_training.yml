@@ -1,0 +1,17 @@
+dataset_name: transfer_8914746_files_967f328d
+preprocessings:
+- configuration: config_vtest.yml
+  cross_sectionnal: true
+  input: /home/francy/Documents/Data_from_Elise_2025/transfer_8914746_files_967f328d/raw
+  modalities:
+  - flair
+  - t1
+  normalizations:
+    flair: []
+    t1: []
+  preprocess_steps:
+  - prepare_without_brain_extraction
+  - remove_bias
+  - normalize
+  reference: anatomy-brain/t1_skull_stripped.nii.gz
+task_description: null
