@@ -1,3 +1,8 @@
+
+## This repository is no longer maintained. Please refer to our new project page for updates, models, and articles:
+👉 https://strokeseg-doc.readthedocs.io/en/latest
+
+
 ## Deep Learning and Multi-Modal MRI for Segmentation of Sub-Acute and Chronic Stroke Lesions 
 
 *This project is for research and educational purposes only. Commercial use of the models or data is strictly prohibited unless prior permission is granted by the authors.*
